@@ -16,9 +16,13 @@ OnBoot{
 
 
 OnSakuraMenu{
-	_backupLength = -13*fontSize - 625
+	_backupLength = -15*fontSize - 650
 
-	"\0\_q\n\n\n"
+	"\0\_q\f[height,%fontSize]\n\n\n"
+	--
+	if fontSize >= 16{
+		"\b2"
+	}
 	--
 	"\__q[OnHenHouse]\![*]Chickens Overview\__q\n"
 	--
@@ -43,14 +47,15 @@ OnHenHouse : all{
 		_name = chickens[_i]
 		_hunger = chickenFood[_i]
 		_water = chickenWater[_i]
+		_age = chickenAge[_i]
 		case chickenHere[_i]{
 			when 0{
 				"%_name ran away.\n"
 			}
 			when 1{
-				"%_name - Outside    \__q[OnStore,%(_i+1)]\![*]Store\__q  "
+				"%_name - Outside    \__q[OnStore,%(_i+1)]\![*]Store\__q  \n "
 				if chickenAge[_i] < growthTime[_i]; "\__q[OnBuyAge,%(_i+1)]\![*]Grow\__q  "
-				"\n       "
+				"     %_age minutes old\n       "
 				if _i != 1{ "\__q[OnFeed,%(_i+1),henhouse]\![*]Feed %_hunger/100\__q  \n\n[25]" 
 				}else{	
 					"\n"
@@ -60,7 +65,7 @@ OnHenHouse : all{
 			when 2{
 				"%_name - Inside    \__q[OnStore,%(_i+1)]\![*]Release\__q\n       "
 				if chickenAge[_i] < growthTime[_i]; "\__q[OnBuyAge,%(_i+1)]\![*]Grow\__q  "
-				"\n       "
+				"     %_age minutes old\n       "
 				if _i != 1; "\__q[OnFeed,%(_i+1),henhouse]\![*]Feed %_hunger/100\__q  \n\n[25]"
 				//"\__q[OnWater,%(_i+1)]\![*]Water %_water/100\__q"
 			}
@@ -215,6 +220,11 @@ OnUpFont{
 OnChickenMenu : all {
 	_here = chickenHere[_argv[0] - 1]
 	_name = chickens[_argv[0] - 1]
+	--
+	if fontSize > 20{
+		"\b2\n[50]"
+	}
+	--
 	if _here > 0 {
 		
 		_backupLength = -10*fontSize - 300

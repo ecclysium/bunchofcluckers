@@ -453,7 +453,7 @@ initChicken{
 	chickens,= chickenDefaultNicks[(_argv[0])]
 	chickenHere,= 1
 	chickenFood,= 50
-	//chickenWater,= 50
+	chickenWater,= 50
 	chickenEnrichment,= 50
 	chickenAge,= 0
 	chickenPersonality,= RAND(5)

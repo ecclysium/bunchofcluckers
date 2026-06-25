@@ -3,11 +3,11 @@ file,icon.icoa70dbd927d79f44a5d23d8d5f96a655bsize=99678date=2026-06-24T23:11:
 file,install.txtf15534ff40a36502d71049964e3823d5size=71date=2026-06-22T16:52:16
 file,readme.txtc82b5f53de9dd1d23a841808251b302asize=447date=2026-06-24T23:38:16
 file,thumbnail.png663f2459a1af6482d868467d60b435a7size=72177date=2026-06-24T23:06:37
-file,ghost/master/chick_behavior.dicb71532ca8453cbfd31fcb107ae5033aasize=9666date=2026-06-25T08:09:31
-file,ghost/master/chick_database.dicd61cf9a7e12cafb1863e81c706c0b65bsize=1982date=2026-06-25T08:10:50
-file,ghost/master/chick_main.dica380462ee12d438bb42fdd241b82958esize=6281date=2026-06-24T22:55:51
+file,ghost/master/chick_behavior.dic0c038349aff7f944a9819154c106aac2size=9664date=2026-06-25T08:17:58
+file,ghost/master/chick_database.dicd0ecb857580f3437bae004709ddde063size=1910date=2026-06-25T09:22:24
+file,ghost/master/chick_main.dic6bd9ee1b0bb34423003fe92cf959e746size=6461date=2026-06-25T08:34:30
 file,ghost/master/chick_surfaces.dic560b8bf2b02f5a1640632f29d346d5c5size=3635date=2026-06-24T23:03:38
-file,ghost/master/chick_talk.dicac51a4f78ef229e5652a362998d3ad63size=6569date=2026-06-24T23:29:19
+file,ghost/master/chick_talk.dicac51a4f78ef229e5652a362998d3ad63size=6569date=2026-06-25T08:32:58
 file,ghost/master/descript.txta858d57b56dbb7dfe587361cd3af392esize=355date=2026-06-24T23:19:03
 file,ghost/master/variable.cfgad8fd823f3a8b47e29cc40f94e537caasize=712date=2026-06-18T13:39:40
 file,ghost/master/yaya.dll56e3af56c88e696cea1f39d53b239cefsize=880640date=2022-09-10T17:18:59

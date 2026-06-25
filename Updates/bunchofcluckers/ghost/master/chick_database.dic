@@ -32,10 +32,8 @@ chickenDefaultNicks : array{
 }
 
 shopItems : array{
-	_eggprice = 40 * (activechickens) 
-	if activechickens > 3{
-		_eggprice = _eggprice * (activechickens-3)
-	}
+	_eggprice = 80 * (activechickens) 
+	
 	"Seeds#30"
 	"Egg#%(_eggprice)"
 	//"Upgrade#1000"
