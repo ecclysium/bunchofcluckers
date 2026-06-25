@@ -1,0 +1,120 @@
+
+
+On_homeurl{
+
+	"https://raw.githubusercontent.com/Ecclysium/bunchofcluckers/master/Updates/BunchOfCluckers/"
+}
+
+portalsites_sakura : array{
+	"Dransnake"; "https://dransnake.carrd.co/"
+	"Ecclysium"; "https://ecclysium.github.io/"
+	"just_average"; "https://just-average.tumblr.com/?source=share"
+}
+
+
+
+chickenDefaultNicks : array{
+	"Foghorn"
+	"Maximum Chicken"
+	"Surfer Brah"
+	"Silvie"
+	"Call Your Mom"
+	"Aperol Spritz"
+	"Orbington"
+	"Puffus Wumpus"
+	"Fully Yolked"
+	"Leg Day"
+	"Violence"
+	"The Dad Who Stepped Up"
+
+}
+
+shopItems : array{
+	_eggprice = 40 * (activechickens) 
+	if activechickens > 3{
+		_eggprice = _eggprice * (activechickens-3)
+	}
+	"Seeds#30"
+	"Egg#%(_eggprice)"
+	//"Upgrade#1000"
+
+
+}
+
+
+chickenBreed : array{
+	"Leghorn"
+	"...cat??"
+	"Brahma"
+	"Silkie"
+	"Call Du-- Chicken"
+	"Appenzeller Spitzhauben"
+	"Orpington"
+	"...chicken..."
+	"Yokohama"
+	"Modern Game"
+	"CHICKEN??"
+	"Ambiguous Rooster"
+
+}
+
+//For now only the cat takes longer
+growthTime : array{
+	30
+	0
+	30
+	30
+	30
+	30
+	30
+	30
+	30
+	30
+	30
+	30
+
+}
+
+
+//Pick two chickens at random. Already should have been validated before being run.
+getChickenPair : array{
+	_chickenOne = RAND(chickennum)
+	_chickenTwo = RAND(chickennum)
+	while chickenHere[_chickenOne] == 0{
+		_chickenOne = RAND(chickennum)
+	}
+	while _chickenOne == _chickenTwo || chickenHere[_chickenTwo] == 0{
+		_chickenTwo = RAND(chickennum)
+	}
+	chickens[_chickenOne]
+	chickens[_chickenTwo]
+
+}
+
+//argv0 is personality number.
+//returns -1 if this chicken cannot be found.
+getChickenPersonality{
+	_name = -1
+	for _i = 0; _i < chickennum; _i++{
+		
+		if chickenHere[_i] > 0 && chickenPersonality[_i] == _argv[0]{
+			_name = chickens[_i]
+			_name
+		}
+		
+	}
+	_name
+
+}
+
+getRandomChicken{
+	_chicken = RAND(chickennum)
+	
+	while chickenHere[_chicken] == 0 || chickenHere[_chicken] == 2{
+		_chicken = RAND(chickennum)
+	}
+	
+	chickens[_chicken]
+
+}
+

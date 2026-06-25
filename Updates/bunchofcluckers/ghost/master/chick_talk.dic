@@ -1,0 +1,290 @@
+
+
+menuOpeners{
+	{
+		"{The chickens are clucking around in the yard.}"
+		"{One of the chickens seems to have caught %(prey).}" 
+		"{The chickens are scratching around the yard.}"
+		"{A good day for chickens.}"
+		"{You hear that a chicken has laid an egg nearby.}"
+		if chickensHere[4] == 1; "{The duck is trying to get into the water again.}" 
+		"%(tips)"
+	}
+	{
+		if activechickens >= 2{
+			_chickenPair = getChickenPair
+			"{%(_chickenPair[0]) is fighting %(_chickenPair[1]) over a worm they found.}"
+		}
+		_chickenBroody = getChickenPersonality(1)
+		_chickenBullied = getChickenPersonality(2)
+		if _chickenBroody != -1 && _chickenBullied != -1{
+			"{%_chickenBroody is pecking at %_chickenBullied.}"
+		}
+		"{One of the chickens has found themself on the roof of the coop.}"
+		
+	}
+	"%(tips)"
+	"%(chickenFacts)"
+}
+
+
+tips{
+	"{Tip: You can sell your eggs at the shop.}"
+	"{Tip: Keep your food stocked, you never know until it's too late.}"
+	"{Tip: You can pet the chickens! Go ahead and try it.}"
+	"{Tip: The water is all in one place, so you only have to worry about refilling the tank.}"
+	"{Tip: You can buy new chickens in the shop, more chickens means more eggs.}"
+}
+
+
+chickenFacts{
+"{Fact: That cat was lured here by the chick. It's too bad, but at least you don't have to feed him.}"
+"{Fun Fact: Brahmas are one of the biggest chickens in the world!}"
+"{Fun Fact: If a flock of hens doesn't have a rooster, one of the hens takes the place of the rooster.}"
+"{Fun Fact: Chickens have a ranking system called the pecking order!}"
+"{Fun Fact: You can tell how full a chicken is by feeling their chest for their crop. }"
+"{Fun Fact: Eggs don't always grow new chickens.}"
+
+"{Fun Fact: Sometimes eggs can come with two or more yolks!}"
+"{Chickens come in all shapes and sizes!}"
+
+}
+
+//deprecated
+chickenGreeting{
+	"%(repBok)"
+	"bok-bcaawww!!"
+	"%(repCluck)"
+	"%(repBuk)"
+	"bok bok"
+
+}
+
+chickGreeting{
+	repeatingWord("peep",1,4)
+	"{They are following you.}"
+	if activechickens > 2; "{%(getRandomChicken) is teaching the chick how to %(do).}"
+	"{Little ball of fluff.}"
+	"{It's jus' a baby.}"
+	"{They're running around, exploring the area.}"
+	"{Tiny baby…}"
+	"{Fluffy child.}"
+	"{It's a little guy!}"
+	"{Pre-chicken.}"
+
+}
+
+hungryGreeting{
+	"{She's scavenging for more food.}"
+	"{She's chasing around a flying insect.}"
+	"{Oh lord she comin'.}"
+	"{She looks at you, expecting food.}"
+	"{She's pecking at the nearby flora.}"
+	"{She's a big one.}"
+	"{Her hunger knows no bounds.}"
+	"{Keep the food supply away from her!}"
+	"{All she knows is food.}"
+	"{Her beak is stained with food.}"
+}
+
+broodyGreeting{
+	"{She starts to growl at you.}"
+	"{She would rather sit on eggs.}"
+	"{She seems annoyed at your presence.}"
+	"{Her feathers start to puff.}"
+	"{angy >:(}"
+	"rrrrrrrrrrrrrrrrrrrrr"
+	"{She doesn't like you right now.}"
+	"{She smacks you with her wings.}"
+	"{Little birb of rage.}"
+	"hiisssssss"
+}
+
+bulliedGreeting{
+	"{She's wary of her surroundings.}"
+	"{She's just standing there.}"
+	"{She is being push around by the others.}"
+	"{She's startled by you.}"
+	"{She's a special one.}"
+	"{Poor girl.}"
+	"{Her feathers are ruffled.}"
+	"{Take good care of her.}"
+	"{She's careful not to get in the other chickens way.}"
+	"{She's all by herself.}"
+}
+
+noisyGreeting{
+	"{She's very vocal on your arrival.}"
+	repNoisyBok
+	repNoisyBuk
+	repeatingWord("cluck",1,3)
+	repeatingWord("BAWK",2,4)
+	"{She thought she saw a hawk, but it was a false alarm.}"
+	"{She can talk your ear off in her chicken ways.}"
+	"{She's a loud one.}"
+	"BAKAWK!"
+	"{Sounds like she tried to crow, but it just a bunch of screaming.}"
+
+}
+
+lostGreeting{
+	"{She's just standing there.}"
+	".\w4.\w4."
+	"bukbukbuk?"
+	"{She's staring off into the distance.}"
+	"{She's not sure where she is.}"
+	"…bok?"
+	"{If you stand very still, she can't see you.}"
+	"{No thoughts, head empty.}"
+	if activechickens > 2; "{She's staring at %(getRandomChicken)."
+	"{She doesn't do much.}"
+}
+
+puffGreeting{
+	"{The little raptor is terroizing a nearby %(victim).}"
+	"{She screeches at you.}"
+	"{She fluffs her feathers.}"
+	"{She's screeching at the other chickens.}"
+	"{This little gal is far far away from where she should be.}"
+	"{This chicken has teeth!}"
+	"{Her tail is long, some other chickens almost mistake her for the rooster.}"
+	"{A blast from the past!}"
+	"{Little dino.}"
+	"{No thoughts behind those big 'ol eyes.}"
+	
+	
+}
+
+duckGreeting{
+
+	"{She's trying to get into the water tank again.}"
+	"{She flaps her wings to shake off any excess water.}"
+	"{She quacks loudly.}"
+	repeatingWord("quack",2,4)
+	"{She wants to swim right now.}"
+	"{She shakes some excess water onto you.}"
+	"{She's preening her feathers.}"
+	"{You can see her fly a bit before landing by you.}"
+	"{Round..}"
+	"{Is this really a chicken?}"
+}
+
+
+catGreeting{
+	"meow.\w4.\w4. chirp"
+	"{He tries to hide the fact he is a cat.}"
+	"{He looks at you with both pairs of eyes.}"
+	"{He spots a mouse nearby.}"
+	"{It seems the cat has found a mouse to eat.}"
+	"{The cat is devouring a mouse.}"
+	"{At least you don't have to feed this one.}"
+	"{You see him grooming himself.}"
+	"purrrrrrrrr"
+	"{He's starting to wonder why he got this job.}"
+	
+}
+
+genericFeedingText{
+	"{She's had her fill.}"
+	"{She doesn't pay any mind to it.}"
+	"{She turns away.}"
+	"{She walks by.}"
+	"{She's not hungry.}"
+	"{She doesn't need anymore.}"
+
+}
+
+
+
+cleaningText{
+	"{Good as new!}"
+	"{Refreshing!}"
+	"{There, all clean again!}"
+	"{Ready to be used again!}"
+	"{Spotless!}"
+}
+
+victim{
+	"mouse"
+	"insect"
+	"lizard"
+	"bird"
+}
+
+prey{
+	"a mouse"
+	"a worm"
+	"a bee"
+	"an insect"
+	"a lizard"
+
+}
+
+do{
+	"drink"
+	"eat"
+	"scavenge"
+	"use the dirt bath"
+}
+
+
+//Shorthands for clucking amounts
+repBok{
+	repeatingWord("bok",1,8)
+}
+
+repCluck{
+	repeatingWord("cluck",1,8)
+}
+
+repBuk{
+	repeatingWord("buk",1,8)
+	
+}
+
+
+repNoisyBok{
+	repeatingWord("bok",5,10)
+}
+
+repNoisyCluck{
+	repeatingWord("cluck",5,10)
+}
+
+repNoisyBuk{
+	repeatingWord("buk",5,10)
+	
+}
+
+
+repBroodyBok{
+	repeatingWord("bok",1,3)
+}
+
+repBroodyCluck{
+	repeatingWord("cluck",1,3)
+}
+
+repBroodyBuk{
+	repeatingWord("buk",1,3)
+	
+}
+
+//Repeat argv0 1-8 times
+//arg1 is min 
+//arg2 is max
+repeatingWord : all{
+	_num = RAND(_argv[2] - _argv[1]) + _argv[1]
+	for _i = 0; _i < _num; _i++{
+		"%_argv[0]"
+	}
+
+}
+
+
+OnTranslate{
+	//"\f[height,%fontSize]%reference0"
+
+}
+
+

@@ -1,0 +1,287 @@
+OnFirstBoot{
+
+	OnChickenVariables
+	"%(clearChickens)%(chickies)\0{It's clucking time! Feed the chickens, clean the coop; can't get any more simple than that!}"
+	
+
+}
+
+
+OnBoot{
+	"%(chickies)"
+	upminute = 0
+
+}
+
+
+
+OnSakuraMenu{
+	_backupLength = -13*fontSize - 625
+
+	"\0\_q\n\n\n"
+	--
+	"\__q[OnHenHouse]\![*]Chickens Overview\__q\n"
+	--
+	"\__q[OnShop]\![*]Shop\__q\n"
+	--
+	"\__q[OnClean]\![*]Clean Henhouse\__q\n\n[50]"
+	--
+	"\__q[OnSettings]\![*]Settings\__q    \__q[null]\![*]Close\__q\n\n[50]"
+	--
+	"\f[align,center]Coins: %coins *~* Seed: %seeds *~* %coopcleanliness% clean"
+	--
+	"\_q\n[%_backupLength]\0"
+	--
+	"%(menuOpeners)"
+	
+
+}
+
+OnHenHouse : all{
+	"\_q\0\f[height,%fontSize]\b2"
+	for _i = 0; _i < chickennum; _i++{
+		_name = chickens[_i]
+		_hunger = chickenFood[_i]
+		_water = chickenWater[_i]
+		case chickenHere[_i]{
+			when 0{
+				"%_name ran away.\n"
+			}
+			when 1{
+				"%_name - Outside    \__q[OnStore,%(_i+1)]\![*]Store\__q  "
+				if chickenAge[_i] < growthTime[_i]; "\__q[OnBuyAge,%(_i+1)]\![*]Grow\__q  "
+				"\n       "
+				if _i != 1{ "\__q[OnFeed,%(_i+1),henhouse]\![*]Feed %_hunger/100\__q  \n\n[25]" 
+				}else{	
+					"\n"
+				}
+				//"\__q[OnWater,%(_i+1)]\![*]Water %_water/100\__q"
+			}
+			when 2{
+				"%_name - Inside    \__q[OnStore,%(_i+1)]\![*]Release\__q\n       "
+				if chickenAge[_i] < growthTime[_i]; "\__q[OnBuyAge,%(_i+1)]\![*]Grow\__q  "
+				"\n       "
+				if _i != 1; "\__q[OnFeed,%(_i+1),henhouse]\![*]Feed %_hunger/100\__q  \n\n[25]"
+				//"\__q[OnWater,%(_i+1)]\![*]Water %_water/100\__q"
+			}
+			
+			
+		}
+		
+	
+	}
+	"\n\__q[null]\![*]Close\__q  \__q[OnSakuraMenu]\![*]Back\__q\n"
+
+}
+
+OnBuyAge: all{
+	"{This will cost 50 coins. Are you sure?}\n\n"
+	"\__q[OnAge,%(reference0)]\![*]Yes\__q\n"
+	"\__q[OnHenHouse]\![*]No\__q"
+
+}
+
+
+OnAge{
+	_name = chickens[reference0-1]
+	chickenAge[reference0-1] += 10
+	coins -= 50
+	"%(chickies)\0%_name has aged up by 10 minutes! New balance: %coins"
+}
+
+OnClean{
+	coopcleanliness = 100
+	"%(chickies)\0"
+	--
+	"%(cleaningText)"
+	{
+		"{The coop has been cleansed.}"
+		"{Goodbye dirt!}"
+	}
+}
+
+
+OnShop : all{
+	"\_q\f[height,%fontSize]You have %coins coins. \n\n[50]"
+	for _i = 0; _i < ARRAYSIZE(shopItems); _i++{
+		_item = shopItems[_i]
+		if _i != 1 || activechickens < 8{
+			if coins < TOINT(_item[1,'#']){
+				"%(_item[0,'#']) for %(_item[1,'#']) coins\n"
+			}else{
+				"\__q[OnBuy,%_i]\![*]%(_item[0,'#']) for %(_item[1,'#']) coins\__q\n"
+			}
+		
+			
+		}
+		
+	}
+	"\n[50]\__q[OnSellEggs,%_i]\![*]Sell %eggsinbasket eggs for %(eggsinbasket * 8) coins\__q\n"
+	
+	"\n\__q[null]\![*]Close\__q  \__q[OnSakuraMenu]\![*]Back\__q\n"
+
+}
+
+OnBuy{
+	"\_q"
+	//reference0 is the value
+	_item = shopItems[reference0]
+	//subtract funds
+	coins-= TOINT(_item[1,'#'])
+	--
+	if reference0 == 1{
+		_chickenType = addChicken
+		
+		_defName = chickens[_chickenType]
+		
+		if  _chickenType == 1 || _chickenType == 4 || _chickenType == 7  {
+			"\p[%(_chickenType+1)]\s[703000]\0"
+			--
+			"{Looks like something has snuck into your yard.\w4.\w4.}"
+			"{Strange looking chicken.}"
+			"{Hmm, something doesn't feel right.}"
+			"{Are you sure this is a chicken?}"
+			"{What does the egg have in store this time?}"
+			"{A new friend!}"
+			"{A new addition to the flock!}"
+			
+		}else{
+			"\p[%(_chickenType+1)]\s[700]\i[10]\0"
+			--
+			"{Time to hatch a new friend.}"
+			"{It's hatching time!}"
+			"{New egg, what secrets does it have stored?}"
+			
+			--
+			"\p[%(_chickenType+1)]\s[121]\i[10]"
+		}
+		--
+		"\0\n\n[50]{What would you like to name this %(chickenBreed[_chickenType])?}\![open,inputbox,OnNameChicken,0,%(_defName),--reference=%(_chickenType)]"
+	
+	}else{
+	
+		//what you're buying
+		case reference0{
+			when 0{ seeds+=400}
+			
+		}
+		
+		--
+		"%(chickies)\0Bought %(_item[0,'#']) for %(_item[1,'#']) coins.\n\n"
+		
+	}
+	--
+	"\n\n"
+	--
+	"\__q[OnShop]\![*]Back to Shop\__q\n\n[25]"
+	--
+	"\__q[null]\![*]Close\__q\n"
+}
+
+
+OnNameChicken{
+	chickens[reference2] = reference0
+	"%(chickies)\0{Welcome to the world, %reference0!}"
+}
+
+OnSellEggs{
+	coins += eggsinbasket * 8
+	eggsinbasket = 0
+	"%(chickies)Sold eggs! New balance: %coins"
+}
+
+OnSettings: all{
+	"\_q\f[height,%fontSize]"
+	
+	//"\__q[OnSFXToggle]\![*]Turn SFX off *(there is currently no SFX)\__q\n"
+	
+	"\__q[OnDownFont]\f[height,16] - \f[height,%fontSize]\__qFont Size\__q[OnUpFont]\f[height,16] + \f[height,%fontSize]\__q\n"
+
+	"\__q[OnFirstBoot]\![*]Reset\__q\n\n[50]"
+	
+	"\__q[null]\![*]Close\__q  \__q[OnSakuraMenu]\![*]Back\__q\n"
+}
+
+OnDownFont{
+	fontSize--
+	OnSettings
+}
+
+OnUpFont{
+	fontSize++
+	OnSettings
+}
+
+OnChickenMenu : all {
+	_here = chickenHere[_argv[0] - 1]
+	_name = chickens[_argv[0] - 1]
+	if _here > 0 {
+		
+		_backupLength = -10*fontSize - 300
+		_food = chickenFood[_argv[0] - 1]
+		_water = chickenWater[_argv[0] - 1]
+		_play = chickenEnrichment[_argv[0] - 1]
+		_age = chickenAge[_argv[0] - 1]
+		_personality = chickenPersonality[_argv[0] - 1]
+		"\_q\n\n\n[50]"
+		
+	//	"%_name, %_age minutes old, personality %_personality\n\n[50]"
+		
+		if _argv[0] != 2{
+			"\__q[OnFeed,%reference3]\![*]Feed\__q %_food/100   \n"
+		}else{
+			_backupLength +=125
+		}
+		
+		//"\__q[OnWater,%reference3]\![*]Water\__q %_water/100   "
+		
+		//"\__q[OnPlay,%reference3]\![*]Play\__q %_play/100\n\n[25]"
+		
+		"\__q[OnStore,%reference3]\![*]Store\__q    \__q[null]\![*]Close\__q\n"
+		
+		
+		"\_q\n[%_backupLength]"
+		_personality = chickenPersonality[_argv[0] - 1]
+		if _argv[0] != 2 && chickenAge[_argv[0] - 1] < growthTime[_argv[0]-1]{
+			"%(chickGreeting)"
+		}else{
+			case _personality{
+				when 0{ 
+					"%(hungryGreeting)"
+				}
+				when 1{
+					"%(broodyGreeting)"
+				}
+				when 2{
+					"%(bulliedGreeting)"
+				}
+				when 3{
+					"%(noisyGreeting)"
+				}
+				when 4 {
+					"%(lostGreeting)"
+				}
+				when 5{
+					"%(catGreeting)"
+				}
+				when 6{
+					"%(duckGreeting)"
+				}
+				when 7{
+					 "%(puffGreeting)"
+				}
+				others{
+					"ERROR tell Gray about this menu"
+				}
+			}
+		}
+		
+	}else{
+		"%(chickies){Looks like %_name has run away. \w8You should of taken care of them better.\w4.\w4.}"
+	}
+
+	
+
+}
+
+

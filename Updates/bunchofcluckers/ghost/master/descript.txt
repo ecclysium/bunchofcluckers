@@ -1,0 +1,15 @@
+charset,UTF-8
+
+name,Bunch of Cluckers
+type,ghost
+
+shiori,yaya.dll
+
+craftman,Dransnake & Ecclysium & just_average
+craftmanw,Dransnake & Ecclysium & just_average
+craftmanurl,https://dransnake.carrd.co/ https://ecclysium.github.io/ https://just-average.tumblr.com/?source=share
+
+sakura.name,Coop
+kero.name,Leghorn
+
+sstp.allowunspecifiedsend,0

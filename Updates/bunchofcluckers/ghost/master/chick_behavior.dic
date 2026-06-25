@@ -1,0 +1,463 @@
+
+//Chicken calculations!
+OnMinuteChange : all{
+
+	upminute++
+	
+	//Let the pet memory fade. A little negatives are fine; it's a touch sensitive
+	if stroke > 30{
+		stroke-=30
+	}
+	
+	for _i = 0; _i < chickennum; _i++{
+	
+		if chickenHere[_i] > 0{
+			
+			if _i != 1; chickenFood[_i] -= 1
+			
+			//chickenWater[_i] -= 2
+			//Every 4 minutes, -1 water point per chicken
+			if upminute % 4 == 0{
+				watertank--
+				if coopcleanliness > 0{
+					coopcleanliness--
+				}
+				
+				//Hungry chickens eat more
+				if chickenPersonality[_i] == 0{
+					chickenFood[_i] -= 1
+				}elseif chickenPersonality[_i] == 2{
+					chickenFood[_i] += 1
+				}
+			}
+			chickenEnrichment[_i] -= 1
+			chickenAge[_i] += 1
+			if chickenAge[_i] >= growthTime[_i]{
+				"\C\p[%(_i+1)]\s[10%(_i+1)]\i[10]\f[height,%fontSize]"
+			}
+			
+			if chickenFood[_i] < 25 || chickenWater[_i] < 30{
+				"\C\p[%(_i+1)]\i[60]\f[height,%fontSize]"
+			}
+			
+			if chickenFood[_i] <= 0 || watertank <= 0{
+				OnChickenRunAway(_i)
+			}elseif coopcleanliness > 10 && chickenAge[_i] >= growthTime[_i] && upminute % (12 - _i) == 0 && eggsinbasket < 13{
+				eggsinbasket++
+				//update visuals
+				basket
+			
+			}
+			
+			
+		}
+		
+	
+	}
+	
+}
+
+
+//Chicken ran out of food or water
+OnChickenRunAway{
+	activechickens--
+	_name = chickens[_argv[0]]
+	chickenHere[_argv[0]] = 0
+	"%(chickies){Looks like %_name has run away. \w8You should of taken care of them better.\w4.\w4.}\x"
+	"%(chickies){%_name has fled!}\x"
+	"%(chickies){Oh no!%_name has ran away. \w8Always remember to feed your flock!}\x"
+
+}
+
+//When a chicken egg is bought
+addChicken  {
+	//First, see if we're missing any chickens
+	_runawayflag = 0 
+	for _i = 0; _i < chickennum; _i++{
+	
+		if chickenHere[_i] == 0{
+			_runawayflag = _i
+			
+			//Init new chicken at this location
+			activechickens++
+			chickens[_i]= chickenDefaultNicks[_i]
+			chickenHere[_i]= 1
+			chickenFood[_i]= 90
+			chickenWater[_i]= 50
+			chickenEnrichment[_i]= 50
+			chickenAge[_i]= 0
+			chickenPersonality[_i] = RAND(5)
+			if _i == 1{
+			//cat
+				chickenPersonality[_i] = 5
+			}
+			elseif _i == 4{
+			//duck
+				chickenPersonality[_i] = 6
+			}
+			elseif _i == 7{
+			//puffwump
+				chickenPersonality[_i] = 7
+			}
+			
+			_i
+			return
+		}
+	}
+	
+	//If no empty slots were found 
+	if _runawayflag == 0{
+		initChicken(chickennum)
+		if chickennum == 1{
+			//cat
+				chickenPersonality[chickennum] = 5
+			}
+			elseif chickennum == 4{
+			//duck
+				chickenPersonality[chickennum] = 6
+			}
+			elseif chickennum == 7{
+			//puffwump
+				chickenPersonality[chickennum] = 7
+		}
+		activechickens++
+		chickennum++
+		_runawayflag = chickennum-1
+	}
+	
+	//the slot num is filled in there if not runaway
+	_runawayflag
+	return
+
+}
+
+
+
+
+OnFeed{
+	//If this was called from the overview menu, update that first.
+	_fed = 100 - chickenFood[reference0 - 1]
+	
+	
+	if seeds >= _fed {
+		
+	
+		if chickenFood[reference0 - 1] >= 99 {
+		
+			if reference1 == "henhouse"{
+				"\0\c\C%(OnHenHouse)"
+			}
+			--
+			"%(chickies)\p[%reference0]\f[height,%fontSize]"
+			--
+	
+			_personality = chickenPersonality[reference0-1]
+			"%(genericFeedingText)"
+			case _personality{
+				when 0{ 
+					"{She pecks at the food, but doesn't eat it.}"
+					"{Stuffed.}"
+					"{Her crop is poking out.}"
+				}
+				when 1{
+					"{Maybe not.}"
+					"{It looks like she had enough.}"
+					"{She looks like she'll bite you instead.}"
+				}
+				when 2{
+					"{She doesn't take anymore.}"
+					"{She got chased away by the others.}"
+					"{She doesn't get a chance to eat it.}"
+				}
+				when 3{
+					"{Sounds like she's more focused on other things.}"
+					"{She clucks away, satisfied.}"
+					"{She's letting others take it instead.}"
+				}
+				when 4 {
+					"{She doesn't even look at the food.}"
+					"{She missed.}"
+					"{She acts as if she doesn't see it.}"
+				}
+				when 5{
+					"{The cat can catch their own food.} (ERROR)"
+				}
+				when 6{
+					"{She's too busy swimming in the water.}"
+					"{She quacks away.}"
+				}
+				others {
+					"{She has no more interest.}"
+					"{She walks off.}"
+					"{She'd rather eat the bugs she found instead.}"
+				}
+				
+			}
+		}else{
+			
+			chickenFood[reference0 - 1] += _fed
+			seeds -= _fed
+			
+			if reference1 == "henhouse"{
+				"\0\c\C%(OnHenHouse)"
+			}
+			--
+			"%(chickies)\p[%reference0]\f[height,%fontSize]"
+			--
+		
+			
+			_personality = chickenPersonality[reference0-1]
+			
+			case _personality{
+				when 0{ 
+					"{She eats so fast she flicks food everywhere.}"
+					"{Gone in seconds.}"
+					"{The food has vanished.}"
+					"{Annihilated.}"
+				}
+				when 1{
+					"rrrrrrrrrrrrrrr"
+					"{She pecks at the food and your hand.}"
+					"{She's contemplating whether to chase you off or take the food.}"
+					"{She eats reluctantly.}"
+					
+				}
+				when 2{
+					"{She takes it cautiously.}"
+					"{She's looking out for the other chickens.}"
+					"{She takes some before the others get to it.}"
+					"{She didn't want it at first.}"
+				}
+				when 3{
+					"CLUCKCLUCK CLUCK CLUCKCLUCK"
+					"{She eats while clucking loudly.}"
+					"{She's eating while letting all of the coop know.}"
+					"{She's getting louder after every peck.}"
+				}
+				when 4 {
+					"bukbuk  rrr"
+					"{She doesn't see it at first, but finds it eventually.}"
+					".\w4.\w4. bokbok buk bok."
+					"{She doesn't notice until you put it right to her beak.}"
+				}
+				when 5{
+					"{The cat can catch their own food.} (ERROR)"
+				}
+				when 6{
+					repeatingWord("quack",2,4)
+					"{She dunks a bunch of food into the water before swallowing.}"
+					"{Her round beak has trouble breaking down the food.}"
+					"{She wanders away with a beak full of food.}"
+				}
+				when 7{
+					"{She gets food all over her mouth.}"
+					"{The small raptor devours her prey. A small bag of food.}"
+					"{The creature chows down.}"
+					"{She screeches in delight.}"
+				}
+				others{
+					"ERROR tell Gray about this"
+				}
+					
+			}
+			
+		}
+	}else{
+		
+		chickenFood[reference0 - 1] += _fed
+		seeds = 0
+		
+		if reference1 == "henhouse"{
+			"\0\c\C%(OnHenHouse)"
+		}
+		--
+		"%(chickies)\p[%reference0]\f[height,%fontSize]"
+		--
+	
+		if _fed == 0{
+			"{There's no seed left to feed her!}"
+		}else{
+			"{Fed chicken a scant %_fed seeds. \w8Buy more seed!}"
+		}
+		
+	}
+	--
+	"%(chickies)"
+	--
+	
+	
+}
+
+OnWater{
+
+	"\0"
+	--
+	if watertank == 100{
+		"{It's already full.}"
+		"{The tank can't fit any more.}"
+		"{There's enough water already.}"
+		"{You don't need anymore.}"
+	}else{
+		watertank = 100
+		"%(chickies)"
+		--
+		"{The water has been refilled.}"
+		"{Water's A'Plenty!}"
+		if chickensHere[4] > 0; "{Just don't let the duck near.}"
+		"{You spill some, but it's refilled.}"
+		"{Nice and refreshing!}"
+		"{Ah water, can't do without it.}"
+	}
+	
+
+	
+}
+
+
+OnPlay{
+	chickenEnrichment[reference0 - 1] += 30
+	"Played with Chicken #%(reference0)"
+	
+}
+
+OnPet{
+	_personality = chickenPersonality[reference3-1]
+	chickenPets[reference3-1]++
+	petPet(reference3-1)
+	--
+	if chickenAge[reference3-1] >= growthTime[reference3-1]{
+		case _personality{
+			when 0{ 
+				"{She pecks at your hand, expecting food.}"
+				"{She's too busy scavenging to notice.}"
+				"{You can feel how big she is.}"
+			}
+			when 1{
+				"*annoyed clucks*" 
+				"{She pecks at you.}"
+				"{She wants to be left alone.}"
+				
+			}
+			when 2{
+				"{She takes a submissive stance.}"
+				"{She tries to run.}"
+				"{She doesn't look like she likes it.}"
+			}
+			when 3{
+				"*loud clucks*"
+				repNoisyBuk
+				"{She's exclaiming her surprize.}"
+			}
+			when 4 {
+				"bok?"
+				"{She doesn't even know she has been pet.}"
+				"{She looks the other way.}"
+			}when 5{
+				"{He starts to purr.}"
+				"{He leans into the pets.}"
+				"{A firm pat.}"
+				"{He wants you to play the bongos on him.}"
+				"{His eyes roll into the back of his head. That's the good stuff.}"
+			}
+			when 6{
+				"quack!"
+				"{She's covered in water droplets.}"
+				"{Little webbed feet!}"
+			}
+			when 7{
+				 "screeee!"
+				 "{Fluffy raptor..}"
+				 "{A pet from another world!}"
+			}
+				
+		}
+	}else{
+		"{They hide under your hand.}"
+		"{Their peeps are getting louder.}"
+		"{They are smol.}"
+		"{Fluffy baby.}"
+		
+	}
+	
+	
+	
+	
+	
+	
+
+}
+
+OnStore{
+	//Toggle
+	if chickenHere[reference0-1] == 2{
+		chickenHere[reference0-1] = 1
+	}elseif chickenHere[reference0-1] == 1{
+		chickenHere[reference0-1] = 2
+	}
+	"%(chickies)"
+	
+}
+
+
+
+
+
+
+
+OnChickenVariables{
+
+
+	seeds = 300
+	coins = 100
+	fontSize = 12
+	eggsinbasket = 0
+	upminute = 0
+	activechickens = 0
+	watertank = 100
+	coopcleanliness = 100
+	
+	chickennum = 1
+	chickens = IARRAY
+	chickenFood = IARRAY
+	//chickenWater = IARRAY
+	chickenEnrichment = IARRAY
+	chickenHere = IARRAY
+	chickenAge = IARRAY
+	chickenPersonality = IARRAY
+	chickenPets = IARRAY
+	
+	for _i = 0; _i < chickennum; _i++{
+		activechickens++
+		initChicken(_i)
+		if _i == 1{
+		//cat
+			chickenPersonality[_i] = 5
+			chickenFood[_i] = 100
+		}
+		elseif _i == 4{
+		//duck
+			chickenPersonality[_i] = 6
+		}
+		elseif _i == 7{
+		//puffwump
+			chickenPersonality[_i] = 7
+		}
+	}
+
+
+}
+
+
+//initializes chicken with 
+initChicken{
+	chickens,= chickenDefaultNicks[(_argv[0])]
+	chickenHere,= 1
+	chickenFood,= 50
+	//chickenWater,= 50
+	chickenEnrichment,= 50
+	chickenAge,= 0
+	chickenPersonality,= RAND(5)
+	//Special personalities for nonchickens set outside of this
+	chickenPets,=0
+}
+

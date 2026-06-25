@@ -1,0 +1,656 @@
+
+descript
+{ 
+	version, 1 
+	
+}
+
+//The Coop
+surface0{
+
+	animation10.interval,base
+	animation10.pattern0,overlay,501000,0,0,0
+	
+	animation11.interval,never
+	animation11.pattern0,overlay,501001,0,0,0
+	
+	animation12.interval,never
+	animation12.pattern0,overlay,501002,0,0,0
+	
+	animation13.interval,never
+	animation13.pattern0,overlay,501003,0,0,0
+	
+	
+	animation14.interval,never
+	animation14.pattern0,overlay,503000,0,140,280
+	
+	animation15.interval,never
+	animation15.pattern0,overlay,503000,0,145,260
+	
+	animation16.interval,never
+	animation16.pattern0,overlay,503000,0,140,240
+	
+	animation17.interval,never
+	animation17.pattern0,overlay,503000,0,135,220
+	
+	animation18.interval,never
+	animation18.pattern0,overlay,503000,0,142,200
+	
+	
+	
+	
+	animation19.interval,never
+	animation19.pattern0,overlay,702000,0,205,205
+	
+	//Eggs
+	animation20.interval,never
+	animation20.pattern0,overlay,703000,0,237,297
+	
+	animation21.interval,never
+	animation21.pattern0,overlay,703000,0,247,301
+	
+	animation22.interval,never
+	animation22.pattern0,overlay,703000,0,257,297
+	
+	animation23.interval,never
+	animation23.pattern0,overlay,703000,0,267,299
+	
+	animation24.interval,never
+	animation24.pattern0,overlay,703000,0,277,297
+	
+	animation25.interval,never
+	animation25.pattern0,overlay,703000,0,237,285
+	
+	animation26.interval,never
+	animation26.pattern0,overlay,703000,0,247,289
+	
+	animation27.interval,never
+	animation27.pattern0,overlay,703000,0,257,285
+	
+	animation28.interval,never
+	animation28.pattern0,overlay,703000,0,267,287
+	
+	animation29.interval,never
+	animation29.pattern0,overlay,703000,0,277,285
+	
+	animation30.interval,never
+	animation30.pattern0,overlay,703000,0,247,279
+	
+	animation31.interval,never
+	animation31.pattern0,overlay,703000,0,267,277
+	
+	animation32.interval,never
+	animation32.pattern0,overlay,703000,0,257,265
+
+	
+	//water
+
+	//Full
+	animation50.interval,never
+	animation50.pattern0,overlay,505001,0,-65,146
+	
+	//Mostly full
+	animation51.interval,never
+	animation51.pattern0,overlay,505002,0,-65,146
+	
+	//Mostly empty
+	animation52.interval,never
+	animation52.pattern0,overlay,505003,0,-65,146
+	
+	//Empty
+	animation53.interval,never
+	animation53.pattern0,overlay,505000,0,-65,146
+	
+	
+	
+	//Front of basket
+	animation100.interval,never
+	animation100.pattern0,overlay,704000,0,205,205
+	
+	
+	//Water tank hitbox
+	collision0,-25,190,80,320,Water
+	
+}
+
+
+//Basket alone
+surface50{
+	animation10.interval,never
+	animation10.pattern0,overlay,702000,0,0,0
+	
+	//Eggs
+	animation20.interval,never
+	animation20.pattern0,overlay,703000,0,32,92
+	
+	animation21.interval,never
+	animation21.pattern0,overlay,703000,0,42,96
+	
+	animation22.interval,never
+	animation22.pattern0,overlay,703000,0,52,92
+	
+	animation23.interval,never
+	animation23.pattern0,overlay,703000,0,62,94
+	
+	animation24.interval,never
+	animation24.pattern0,overlay,703000,0,72,92
+	
+	animation25.interval,never
+	animation25.pattern0,overlay,703000,0,32,80
+	
+	animation26.interval,never
+	animation26.pattern0,overlay,703000,0,42,84
+	
+	animation27.interval,never
+	animation27.pattern0,overlay,703000,0,52,80
+	
+	animation28.interval,never
+	animation28.pattern0,overlay,703000,0,62,82
+	
+	animation29.interval,never
+	animation29.pattern0,overlay,703000,0,72,80
+	
+	animation30.interval,never
+	animation30.pattern0,overlay,703000,0,42,74
+	
+	animation31.interval,never
+	animation31.pattern0,overlay,703000,0,62,72
+	
+	animation32.interval,never
+	animation32.pattern0,overlay,703000,0,52,60
+	
+	//Front of basket
+	animation100.interval,never
+	animation100.pattern0,overlay,704000,0,0,0
+	
+	
+	
+}
+
+
+
+//Leghorn
+surface101{
+	//animation10.interval,never
+	//animation10.pattern0,overlay,101000,0,0,0
+	
+	
+	animation10.interval,never
+	animation10.pattern1,overlay,101001,0,0,0
+	animation10.pattern2,overlay,101000,350,0,0
+	animation10.pattern3,overlay,101001,350,0,0
+	animation10.pattern4,start,10
+	
+	animation11.interval,never
+	animation11.pattern1,overlay,101001,0,0,0
+	animation11.pattern2,overlay,101000,1250,0,0
+	animation11.pattern3,overlay,101001,1250,0,0
+	animation11.pattern4,start,11
+	
+	animation12.interval,never
+	animation12.pattern1,overlay,101001,0,0,0
+	animation12.pattern2,overlay,101000,2250,0,0
+	animation12.pattern3,overlay,101001,2250,0,0
+	animation12.pattern4,start,12
+	
+	animation60.interval,never
+	animation60.pattern0,overlay,201000,0,60,10
+	animation60.pattern1,overlay,201001,200,60,10
+	animation60.pattern2,overlay,201000,200,60,10
+	animation60.pattern3,start,60
+	
+	
+	animation70.interval,never
+	animation70.pattern0,parallelstop,10,11,12
+	animation70.pattern1,overlay,101002,0,0,0
+	animation70.pattern2,overlay,101003,100,0,0
+	animation70.pattern3,overlay,101004,100,0,0
+	animation70.pattern4,overlay,101005,100,0,0
+	animation70.pattern5,overlay,101003,100,0,0
+	animation70.pattern6,overlay,101002,100,0,0
+	animation70.pattern7,overlay,101003,120,0,0
+	animation70.pattern8,overlay,101004,100,0,0
+	animation70.pattern9,overlay,101005,100,0,0
+	animation70.pattern10,overlay,101003,100,0,0
+	animation70.pattern11,overlay,101002,100,0,0
+	animation70.pattern12,overlay,101001,100,0,0
+	animation70.pattern13,start,10
+	animation70.pattern14,overlay,-1,0,0,0
+	
+
+
+	//nonfunctional.,................
+	//animation100.interval,never
+	//animation100.pattern0,parallelstop,(10,11)
+//	animation100.pattern1,scaling,101000,0,50,50
+//	animation100.pattern2,scaling,101000,100,40,40
+//	animation100.pattern3,scaling,101000,100,30,30
+	//animation100.pattern4,scaling,101000,100,50,50
+	//animation100.pattern5,scaling,101000,100,40,00
+	//animation100.pattern6,start,100
+	
+	
+}
+
+//Mozz
+surface102{
+	animation10.interval,never
+	animation10.pattern1,overlay,102001,0,0,0
+	animation10.pattern2,overlay,102000,350,0,0
+	animation10.pattern3,overlay,102001,350,0,0
+	animation10.pattern4,start,10
+	
+	animation11.interval,never
+	animation11.pattern1,overlay,102001,0,0,0
+	animation11.pattern2,overlay,102000,1250,0,0
+	animation11.pattern3,overlay,102001,1250,0,0
+	animation11.pattern4,start,11
+	
+	animation12.interval,never
+	animation12.pattern1,overlay,102001,0,0,0
+	animation12.pattern2,overlay,102000,2250,0,0
+	animation12.pattern3,overlay,102001,2250,0,0
+	animation12.pattern4,start,12
+	
+	animation60.interval,never
+	animation60.pattern0,overlay,201000,0,60,20
+	animation60.pattern1,overlay,201001,200,60,20
+	animation60.pattern2,overlay,201000,200,60,20
+	animation60.pattern3,start,60
+	
+	animation70.interval,never
+	animation70.pattern0,parallelstop,10,11,12
+	animation70.pattern1,overlay,102002,0,0,0
+	animation70.pattern2,overlay,102003,100,0,0
+	animation70.pattern3,overlay,102004,100,0,0
+	animation70.pattern4,overlay,102005,100,0,0
+	animation70.pattern5,overlay,102003,100,0,0
+	animation70.pattern6,overlay,102002,100,0,0
+	animation70.pattern7,overlay,102003,120,0,0
+	animation70.pattern8,overlay,102004,100,0,0
+	animation70.pattern9,overlay,102005,100,0,0
+	animation70.pattern10,overlay,102003,100,0,0
+	animation70.pattern11,overlay,102002,100,0,0
+	animation70.pattern12,overlay,102001,100,0,0
+	animation70.pattern13,start,10
+	animation70.pattern14,overlay,-1,0,0,0
+	
+}
+
+
+//Brahma
+surface103{
+	animation10.interval,never
+	animation10.pattern1,overlay,103001,0,0,0
+	animation10.pattern2,overlay,103000,350,0,0
+	animation10.pattern3,overlay,103001,350,0,0
+	animation10.pattern4,start,10
+	
+	animation11.interval,never
+	animation11.pattern1,overlay,103001,0,0,0
+	animation11.pattern2,overlay,103000,1250,0,0
+	animation11.pattern3,overlay,103001,1250,0,0
+	animation11.pattern4,start,11
+	
+	animation12.interval,never
+	animation12.pattern1,overlay,103001,0,0,0
+	animation12.pattern2,overlay,103000,2250,0,0
+	animation12.pattern3,overlay,103001,2250,0,0
+	animation12.pattern4,start,12
+	
+	animation60.interval,never
+	animation60.pattern0,overlay,201000,0,60,10
+	animation60.pattern1,overlay,201001,200,60,10
+	animation60.pattern2,overlay,201000,200,60,10
+	animation60.pattern3,start,60
+	
+	animation70.interval,never
+	animation70.pattern0,parallelstop,10,11,12
+	animation70.pattern1,overlay,103002,0,0,0
+	animation70.pattern2,overlay,103003,100,0,0
+	animation70.pattern3,overlay,103004,100,0,0
+	animation70.pattern4,overlay,103005,100,0,0
+	animation70.pattern5,overlay,103003,100,0,0
+	animation70.pattern6,overlay,103002,100,0,0
+	animation70.pattern7,overlay,103003,120,0,0
+	animation70.pattern8,overlay,103004,100,0,0
+	animation70.pattern9,overlay,103005,100,0,0
+	animation70.pattern10,overlay,103003,100,0,0
+	animation70.pattern11,overlay,103002,100,0,0
+	animation70.pattern12,overlay,103001,100,0,0
+	animation70.pattern13,start,10
+	animation70.pattern14,overlay,-1,0,0,0
+}
+
+
+//Silkie
+surface104{
+	animation10.interval,never
+	animation10.pattern1,overlay,104001,0,0,0
+	animation10.pattern2,overlay,104000,350,0,0
+	animation10.pattern3,overlay,104001,350,0,0
+	animation10.pattern4,start,10
+	
+	animation11.interval,never
+	animation11.pattern1,overlay,104001,0,0,0
+	animation11.pattern2,overlay,104000,1250,0,0
+	animation11.pattern3,overlay,104001,1250,0,0
+	animation11.pattern4,start,11
+	
+	animation12.interval,never
+	animation12.pattern1,overlay,104001,0,0,0
+	animation12.pattern2,overlay,104000,2250,0,0
+	animation12.pattern3,overlay,104001,2250,0,0
+	animation12.pattern4,start,12
+	
+	animation60.interval,never
+	animation60.pattern0,overlay,201000,0,60,40
+	animation60.pattern1,overlay,201001,200,60,40
+	animation60.pattern2,overlay,201000,200,60,40
+	animation60.pattern3,start,60
+	
+	animation70.interval,never
+	animation70.pattern0,parallelstop,10,11,12
+	animation70.pattern1,overlay,104002,0,0,0
+	animation70.pattern2,overlay,104003,100,0,0
+	animation70.pattern3,overlay,104004,100,0,0
+	animation70.pattern4,overlay,104005,100,0,0
+	animation70.pattern5,overlay,104003,100,0,0
+	animation70.pattern6,overlay,104002,100,0,0
+	animation70.pattern7,overlay,104003,120,0,0
+	animation70.pattern8,overlay,104004,100,0,0
+	animation70.pattern9,overlay,104005,100,0,0
+	animation70.pattern10,overlay,104003,100,0,0
+	animation70.pattern11,overlay,104002,100,0,0
+	animation70.pattern12,overlay,104001,100,0,0
+	animation70.pattern13,start,10
+	animation70.pattern14,overlay,-1,0,0,0
+	
+}
+
+
+//Call Duck
+surface105{
+	animation10.interval,never
+	animation10.pattern1,overlay,105001,0,0,0
+	animation10.pattern2,overlay,105000,350,0,0
+	animation10.pattern3,overlay,105001,350,0,0
+	animation10.pattern4,start,10
+	
+	animation11.interval,never
+	animation11.pattern1,overlay,105001,0,0,0
+	animation11.pattern2,overlay,105000,1250,0,0
+	animation11.pattern3,overlay,105001,1250,0,0
+	animation11.pattern4,start,11
+	
+	animation12.interval,never
+	animation12.pattern1,overlay,105001,0,0,0
+	animation12.pattern2,overlay,105000,2250,0,0
+	animation12.pattern3,overlay,105001,2250,0,0
+	animation12.pattern4,start,12
+	
+	animation60.interval,never
+	animation60.pattern0,overlay,201000,0,60,30
+	animation60.pattern1,overlay,201001,200,60,30
+	animation60.pattern2,overlay,201000,200,60,30
+	animation60.pattern3,start,60
+	
+	animation70.interval,never
+	animation70.pattern0,parallelstop,10,11,12
+	animation70.pattern1,overlay,105002,0,0,0
+	animation70.pattern2,overlay,105003,100,0,0
+	animation70.pattern3,overlay,105004,100,0,0
+	animation70.pattern4,overlay,105005,100,0,0
+	animation70.pattern5,overlay,105003,100,0,0
+	animation70.pattern6,overlay,105002,100,0,0
+	animation70.pattern7,overlay,105003,120,0,0
+	animation70.pattern8,overlay,105004,100,0,0
+	animation70.pattern9,overlay,105005,100,0,0
+	animation70.pattern10,overlay,105003,100,0,0
+	animation70.pattern11,overlay,105002,100,0,0
+	animation70.pattern12,overlay,105001,100,0,0
+	animation70.pattern13,start,10
+	animation70.pattern14,overlay,-1,0,0,0
+	
+}
+
+
+//Appenzeller Spitzhauben
+surface106{
+	animation10.interval,never
+	animation10.pattern1,overlay,106001,0,0,0
+	animation10.pattern2,overlay,106000,350,0,0
+	animation10.pattern3,overlay,106001,350,0,0
+	animation10.pattern4,start,10
+	
+	animation11.interval,never
+	animation11.pattern1,overlay,106001,0,0,0
+	animation11.pattern2,overlay,106000,1250,0,0
+	animation11.pattern3,overlay,106001,1250,0,0
+	animation11.pattern4,start,11
+	
+	animation12.interval,never
+	animation12.pattern1,overlay,106001,0,0,0
+	animation12.pattern2,overlay,106000,2250,0,0
+	animation12.pattern3,overlay,106001,2250,0,0
+	animation12.pattern4,start,12
+	
+	animation60.interval,never
+	animation60.pattern0,overlay,201000,0,60,20
+	animation60.pattern1,overlay,201001,200,60,20
+	animation60.pattern2,overlay,201000,200,60,20
+	animation60.pattern3,start,60
+	
+	animation70.interval,never
+	animation70.pattern0,parallelstop,10,11,12
+	animation70.pattern1,overlay,106002,0,0,0
+	animation70.pattern2,overlay,106003,100,0,0
+	animation70.pattern3,overlay,106004,100,0,0
+	animation70.pattern4,overlay,106005,100,0,0
+	animation70.pattern5,overlay,106003,100,0,0
+	animation70.pattern6,overlay,106002,100,0,0
+	animation70.pattern7,overlay,106003,120,0,0
+	animation70.pattern8,overlay,106004,100,0,0
+	animation70.pattern9,overlay,106005,100,0,0
+	animation70.pattern10,overlay,106003,100,0,0
+	animation70.pattern11,overlay,106002,100,0,0
+	animation70.pattern12,overlay,106001,100,0,0
+	animation70.pattern13,start,10
+	animation70.pattern14,overlay,-1,0,0,0
+}
+
+//Orpington
+surface107{
+	animation10.interval,never
+	animation10.pattern1,overlay,107001,0,0,0
+	animation10.pattern2,overlay,107000,350,0,0
+	animation10.pattern3,overlay,107001,350,0,0
+	animation10.pattern4,start,10
+	
+	animation11.interval,never
+	animation11.pattern1,overlay,107001,0,0,0
+	animation11.pattern2,overlay,107000,1250,0,0
+	animation11.pattern3,overlay,107001,1250,0,0
+	animation11.pattern4,start,11
+	
+	animation12.interval,never
+	animation12.pattern1,overlay,107001,0,0,0
+	animation12.pattern2,overlay,107000,2250,0,0
+	animation12.pattern3,overlay,107001,2250,0,0
+	animation12.pattern4,start,12
+	
+	animation60.interval,never
+	animation60.pattern0,overlay,201000,0,60,30
+	animation60.pattern1,overlay,201001,200,60,30
+	animation60.pattern2,overlay,201000,200,60,30
+	animation60.pattern3,start,60
+	
+	animation70.interval,never
+	animation70.pattern0,parallelstop,10,11,12
+	animation70.pattern1,overlay,107002,0,0,0
+	animation70.pattern2,overlay,107003,100,0,0
+	animation70.pattern3,overlay,107004,100,0,0
+	animation70.pattern4,overlay,107005,100,0,0
+	animation70.pattern5,overlay,107003,100,0,0
+	animation70.pattern6,overlay,107002,100,0,0
+	animation70.pattern7,overlay,107003,120,0,0
+	animation70.pattern8,overlay,107004,100,0,0
+	animation70.pattern9,overlay,107005,100,0,0
+	animation70.pattern10,overlay,107003,100,0,0
+	animation70.pattern11,overlay,107002,100,0,0
+	animation70.pattern12,overlay,107001,100,0,0
+	animation70.pattern13,start,10
+	animation70.pattern14,overlay,-1,0,0,0
+	
+}
+
+
+//Puffwump
+surface108{
+	animation10.interval,never
+	animation10.pattern1,overlay,108001,0,0,0
+	animation10.pattern2,overlay,108000,350,0,0
+	animation10.pattern3,overlay,108001,350,0,0
+	animation10.pattern4,start,10
+	
+	animation11.interval,never
+	animation11.pattern1,overlay,108001,0,0,0
+	animation11.pattern2,overlay,108000,1250,0,0
+	animation11.pattern3,overlay,108001,1250,0,0
+	animation11.pattern4,start,11
+	
+	animation12.interval,never
+	animation12.pattern1,overlay,108001,0,0,0
+	animation12.pattern2,overlay,108000,2250,0,0
+	animation12.pattern3,overlay,108001,2250,0,0
+	animation12.pattern4,start,12
+	
+	animation60.interval,never
+	animation60.pattern0,overlay,201000,0,70,20
+	animation60.pattern1,overlay,201001,200,70,20
+	animation60.pattern2,overlay,201000,200,70,20
+	animation60.pattern3,start,60
+	
+	animation70.interval,never
+	animation70.pattern0,parallelstop,10,11,12
+	animation70.pattern1,overlay,108002,0,0,0
+	animation70.pattern2,overlay,108003,100,0,0
+	animation70.pattern3,overlay,108004,100,0,0
+	animation70.pattern4,overlay,108005,100,0,0
+	animation70.pattern5,overlay,108003,100,0,0
+	animation70.pattern6,overlay,108002,100,0,0
+	animation70.pattern7,overlay,108003,120,0,0
+	animation70.pattern8,overlay,108004,100,0,0
+	animation70.pattern9,overlay,108005,100,0,0
+	animation70.pattern10,overlay,108003,100,0,0
+	animation70.pattern11,overlay,108002,100,0,0
+	animation70.pattern12,overlay,108001,100,0,0
+	animation70.pattern13,start,10
+	animation70.pattern14,overlay,-1,0,0,0
+	
+}
+
+//Yokohama
+surface109{
+	animation10.interval,never
+	animation10.pattern1,overlay,109001,0,0,0
+	animation10.pattern2,overlay,109000,350,0,0
+	animation10.pattern3,overlay,109001,350,0,0
+	animation10.pattern4,start,10
+	
+	animation11.interval,never
+	animation11.pattern1,overlay,109001,0,0,0
+	animation11.pattern2,overlay,109000,1250,0,0
+	animation11.pattern3,overlay,109001,1250,0,0
+	animation11.pattern4,start,11
+	
+	animation12.interval,never
+	animation12.pattern1,overlay,109001,0,0,0
+	animation12.pattern2,overlay,109000,2250,0,0
+	animation12.pattern3,overlay,109001,2250,0,0
+	animation12.pattern4,start,12
+	
+	animation60.interval,never
+	animation60.pattern0,overlay,201000,0,60,40
+	animation60.pattern1,overlay,201001,200,60,40
+	animation60.pattern2,overlay,201000,200,60,40
+	animation60.pattern3,start,60
+	
+	animation70.interval,never
+	animation70.pattern0,parallelstop,10,11,12
+	animation70.pattern1,overlay,109002,0,0,0
+	animation70.pattern2,overlay,109003,100,0,0
+	animation70.pattern3,overlay,109004,100,0,0
+	animation70.pattern4,overlay,109005,100,0,0
+	animation70.pattern5,overlay,109003,100,0,0
+	animation70.pattern6,overlay,109002,100,0,0
+	animation70.pattern7,overlay,109003,120,0,0
+	animation70.pattern8,overlay,109004,100,0,0
+	animation70.pattern9,overlay,109005,100,0,0
+	animation70.pattern10,overlay,109003,100,0,0
+	animation70.pattern11,overlay,109002,100,0,0
+	animation70.pattern12,overlay,109001,100,0,0
+	animation70.pattern13,start,10
+	animation70.pattern14,overlay,-1,0,0,0
+	
+}
+
+
+
+
+
+//Leghorn chick
+surface121{
+	animation10.interval,never
+	animation10.pattern1,overlay,30101,0,0,0
+	animation10.pattern2,overlay,30100,350,0,0
+	animation10.pattern3,overlay,30101,350,0,0
+	animation10.pattern4,start,10
+	
+	animation11.interval,never
+	animation11.pattern1,overlay,30101,0,0,0
+	animation11.pattern2,overlay,30100,550,0,0
+	animation11.pattern3,overlay,30101,550,0,0
+	animation11.pattern4,start,11
+	
+	animation12.interval,never
+	animation12.pattern1,overlay,30101,0,0,0
+	animation12.pattern2,overlay,30100,850,0,0
+	animation12.pattern3,overlay,30101,850,0,0
+	animation12.pattern4,start,12
+	
+	animation60.interval,never
+	animation60.pattern0,overlay,201000,0,30,10
+	animation60.pattern1,overlay,201001,200,30,10
+	animation60.pattern2,overlay,201000,200,30,10
+	animation60.pattern3,start,60
+	
+	animation70.interval,never
+	animation70.pattern0,parallelstop,10,11,12
+	animation70.pattern1,overlay,30102,0,0,0
+	animation70.pattern2,overlay,30103,100,0,0
+	animation70.pattern3,overlay,30104,100,0,0
+	animation70.pattern4,overlay,30105,100,0,0
+	animation70.pattern5,overlay,30103,100,0,0
+	animation70.pattern6,overlay,30102,100,0,0
+	animation70.pattern7,overlay,30103,120,0,0
+	animation70.pattern8,overlay,30104,100,0,0
+	animation70.pattern9,overlay,30105,100,0,0
+	animation70.pattern10,overlay,30103,100,0,0
+	animation70.pattern11,overlay,30102,100,0,0
+	animation70.pattern12,overlay,30101,100,0,0
+	animation70.pattern13,start,10
+	animation70.pattern14,overlay,-1,0,0,0
+	
+}
+
+//egg
+surface700{
+	animation10.interval,never
+	animation10.pattern0,overlay,703000,0,0,0
+	
+	
+}
+
+
+
