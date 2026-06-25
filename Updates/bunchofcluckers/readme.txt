@@ -1,4 +1,4 @@
-Bunch of Cluckers by Average, Dransnake, and Ecclysium
+Bunch of Cluckers by dransnake, Ecclysium, just_average
 
 For they have seen God, and God said they are chicken
 
@@ -6,16 +6,9 @@ For they have seen God, and God said they are chicken
 
 
 
-
-
-
-
-
+Art by dransnake
 Code by Ecclysium
-Art by Dransnake
-Writing by Average
+Writing by just_average
 
-Puffwumps are a creation of Creatures of Sonaria by Twin Atlas and the team takes no credit for the design
-The "petpet" animation that was referenced can be found here https://benisland.neocities.org/petpet/ 
-
+Puffwumps are a creation of Creatures of Sonaria by Twin Atlas and our team takes no credit for the design
 Made using Zichqec's Minimum YAYA Template

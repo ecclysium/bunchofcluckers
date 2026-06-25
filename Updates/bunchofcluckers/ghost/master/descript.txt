@@ -5,8 +5,8 @@ type,ghost
 
 shiori,yaya.dll
 
-craftman,Dransnake & Ecclysium & just_average
-craftmanw,Dransnake & Ecclysium & just_average
+craftman,dransnake & Ecclysium & just_average
+craftmanw,dransnake & Ecclysium & just_average
 craftmanurl,https://dransnake.carrd.co/ https://ecclysium.github.io/ https://just-average.tumblr.com/?source=share
 
 sakura.name,Coop

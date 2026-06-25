@@ -2,7 +2,7 @@ charset,UTF-8
 type,shell
 
 name,Default Shell
-craftman,Dransnake
+craftman,dransnake
 craftmanurl,https://dransnake.carrd.co/
 
 seriko.alignmenttodesktop,free
