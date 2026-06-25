@@ -23,13 +23,13 @@ Char10.ratio.devid,+f6S0QO9PAw01c5nsbjZsg==
 Char14.center,779
 Char30.ratio.devid,+f6S0QO9PAw01c5nsbjZsg==
 shiori.debugnotify,0
-Char0.ratio.x,0.705208333
+Char0.ratio.x,0.525000000
 Char0.ratio.devid,+f6S0QO9PAw01c5nsbjZsg==
 Char2.ratio.x,0.822395833
 Char4.ratio.x,0.754687500
 Char6.ratio.x,0.875000000
 Char8.ratio.x,0.918750000
-Char0.ratio.y,0.571296296
+Char0.ratio.y,0.932407407
 Char2.ratio.y,0.661111111
 Char4.ratio.y,0.898148148
 Char6.ratio.y,0.960185185
@@ -41,6 +41,7 @@ Char.VirtualDesktop,415969a4-2276-40d0-bb96-0e40a2fdfca1
 Char11.ratio.x,0.522916667
 Char11.ratio.y,0.960185185
 Char1.ratio.devid,+f6S0QO9PAw01c5nsbjZsg==
+Update.TestMode,1
 Char6.ratio.devid,+f6S0QO9PAw01c5nsbjZsg==
 shell,shell\master\
 FirstBoot,booted
@@ -54,6 +55,7 @@ Char7.ratio.devid,+f6S0QO9PAw01c5nsbjZsg==
 Char8.ratio.devid,+f6S0QO9PAw01c5nsbjZsg==
 shell.ischanged.2,1
 inputbox.top,453
+update.lastexec,835681908
 DeveloperPalette.visible,1
 Char10.ratio.x,0.477083333
 __system_written_flag_do_not_remove__,written

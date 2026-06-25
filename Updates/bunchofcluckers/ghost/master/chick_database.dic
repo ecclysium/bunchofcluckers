@@ -2,8 +2,10 @@
 
 On_homeurl{
 
-	"https://raw.githubusercontent.com/Ecclysium/bunchofcluckers/master/Updates/BunchOfCluckers/"
+	"https://raw.githubusercontent.com/Ecclysium/bunchofcluckers/master/Updates/bunchofcluckers/"
 }
+
+
 
 portalsites_sakura : array{
 	"Dransnake"; "https://dransnake.carrd.co/"
