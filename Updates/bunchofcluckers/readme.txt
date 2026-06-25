@@ -11,4 +11,4 @@ Code by Ecclysium
 Writing by just_average
 
 Puffwumps are a creation of Creatures of Sonaria by Twin Atlas and our team takes no credit for the design
-Made using Zichqec's Minimum YAYA Template
+Made using Zichqec's Minimum YAYA Template https://github.com/Zichqec/minimum_yaya_template/releases
